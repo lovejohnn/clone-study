@@ -36,7 +36,7 @@ LazyLoad Images
 
 尽量避免使用 eval 和 Function
 
-[参与互动](https://github.com/yisainan/web-interview/issues/392)
+)
 
 </details>
 
@@ -62,7 +62,7 @@ LazyLoad Images
 
 （8） destroyed 实例销毁后调用
 
-[参与互动](https://github.com/yisainan/web-interview/issues/393)
+
 
 </details>
 
@@ -74,7 +74,7 @@ VUE 实现双向数据绑定的原理就是利用了 Object.defineProperty() 这
 
 Vue3.0 将用原生 Proxy 替换 Object.defineProperty
 
-[参与互动](https://github.com/yisainan/web-interview/issues/394)
+
 
 </details>
 
@@ -86,7 +86,7 @@ Vue3.0 将用原生 Proxy 替换 Object.defineProperty
 
 Object.defineProperty 只能劫持对象的属性,因此我们需要对每个对象的每个属性进行遍历。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/395)
+
 
 </details>
 
@@ -100,7 +100,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 使用 Proxy 的核心优点是可以交由它来处理一些非核心逻辑（如：读取或设置对象的某些属性前记录日志；设置对象的某些属性值前，需要验证；某些属性的访问控制等）。 从而可以让对象只需关注于核心逻辑，达到关注点分离，降低对象复杂度等目的。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/396)
+
 
 </details>
 
@@ -111,7 +111,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级，这意味着 v-if 将分别重复运行于每个 v-for 循环中。通过 v-if 移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在 v-if 为否的时候运算 v-for。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/397)
+
 
 </details>
 
@@ -126,7 +126,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 (3)页面不过是组件的容器，组件可以嵌套自由组合成完整的页面
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/398)
+
 
 </details>
 
@@ -134,7 +134,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 答案：可以插入的槽口，比如插座的插孔。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/399)
+
 
 </details>
 
@@ -167,7 +167,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 场景 1-3 从最初的只因多看你一眼而用了前端 js 库，一直到最后的大型项目解决方案。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/400)
+
 
 </details>
 
@@ -175,7 +175,7 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 答案：数据驱动和组件化思想
 
-[参与互动](https://github.com/yisainan/web-interview/issues/401)
+
 
 </details>
 
@@ -187,7 +187,7 @@ v-show 指令是通过修改元素的 display 的 CSS 属性让其显示或者�
 
 v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
-[参与互动](https://github.com/yisainan/web-interview/issues/402)
+
 
 </details>
 
@@ -197,7 +197,7 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
 解析：[参考](https://blog.csdn.net/qq_42238554/article/details/86592295)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/403)
+
 
 </details>
 
@@ -217,7 +217,7 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 />
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/404)
+
 
 </details>
 
@@ -228,7 +228,7 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 需要使用 key 来给每个节点做一个唯一标识，Diff 算法就可以正确的识别此节点，找到正确的位置区插入新的节点
 所以一句话，key 的作用主要是为了高效的更新虚拟 DOM
 
-[参与互动](https://github.com/yisainan/web-interview/issues/405)
+
 
 </details>
 
@@ -238,7 +238,7 @@ v-if 指令是直接销毁和重建 DOM 达到让元素显示和隐藏的效果
 
 在项目目录里运行 npm upgrade vue vue-template-compiler，不出意外的话，可以正常运行和 build。如果有任何问题，删除 node_modules 文件夹然后重新运行 npm i 即可。（简单的说就是升级 vue 和 vue-template-compiler 两个插件）
 
-[参与互动](https://github.com/yisainan/web-interview/issues/406)
+
 
 </details>
 
@@ -377,7 +377,7 @@ var app = new Vue({
 
 代码丢进 Firefox 中运行，event 果然就变成了 undefined 了。额，这个我也不知道说什么了。。。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/407)
+
 
 </details>
 
@@ -513,7 +513,7 @@ Vue.nextTick(callback) 使用原理：
 原因是，Vue 是异步执行 dom 更新的，一旦观察到数据变化，Vue 就会开启一个队列，然后把在同一个事件循环 (event loop) 当中观察到数据变化的 watcher 推送进这个队列。如果这个 watcher 被触发多次，只会被推送到队列一次。这种缓冲行为可以有效的去掉重复数据造成的不必要的计算和 DOm 操作。而在下一个事件循环时，Vue 会清空队列，并进行必要的 DOM 更新。
 当你设置 vm.someData = 'new value'，DOM 并不会马上更新，而是在异步队列被清除，也就是下一个事件循环开始时执行更新时才会进行必要的 DOM 更新。如果此时你想要根据更新的 DOM 状态去做某些事情，就会出现问题。。为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 Vue.nextTick(callback) 。这样回调函数在 DOM 更新完成后就会调用。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/408)
+
 
 </details>
 
@@ -551,7 +551,7 @@ component1.data.message = "Peace";
 console.log(component2.data.message); // Love
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/409)
+
 
 </details>
 
@@ -559,7 +559,7 @@ console.log(component2.data.message); // Love
 
 答案：v-for 比 v-if 优先
 
-[参与互动](https://github.com/yisainan/web-interview/issues/410)
+
 
 </details>
 
@@ -713,7 +713,7 @@ console.log(component2.data.message); // Love
 </script>
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/411)
+
 
 </details>
 
@@ -771,7 +771,7 @@ console.log(component2.data.message); // Love
 </script>
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/412)
+
 
 </details>
 
@@ -871,7 +871,7 @@ export default [
 </router-view>
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/413)
+
 
 </details>
 
@@ -879,7 +879,7 @@ export default [
 
 答案：总结组件的职能，什么需要外部控制（即 props 传啥），组件需要控制外部吗（\$emit）,是否需要插槽（slot）
 
-[参与互动](https://github.com/yisainan/web-interview/issues/414)
+
 
 </details>
 
@@ -894,7 +894,7 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 ![vue_004](../images/vue_004.jpg)
 ![vue_005](../images/vue_005.jpg)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/415)
+
 
 </details>
 
@@ -904,7 +904,7 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 ![vue_005](../images/vue_005.jpg)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/416)
+
 
 </details>
 
@@ -914,7 +914,7 @@ vue 的生命周期就是 vue 实例从创建到销毁的过程
 
 解析：[参考](https://blog.csdn.net/xiaxiangyun/article/details/80404768)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/417)
+
 
 </details>
 
@@ -996,7 +996,7 @@ sort()
 reverse()
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/418)
+
 
 </details>
 
@@ -1004,7 +1004,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/419)
+
 
 </details>
 
@@ -1012,7 +1012,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/420)
+
 
 </details>
 
@@ -1020,7 +1020,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/421)
+
 
 </details>
 
@@ -1028,7 +1028,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/422)
+
 
 </details>
 
@@ -1036,7 +1036,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/423)
+
 
 </details>
 
@@ -1054,7 +1054,7 @@ reverse()
 2、初次加载页面更耗时
 3、前进、后退、地址栏等，需要程序进行管理，所以会大大提高页面的复杂性和逻辑的难度
 
-[参与互动](https://github.com/yisainan/web-interview/issues/424)
+
 
 </details>
 
@@ -1064,7 +1064,7 @@ reverse()
 当其依赖的属性的值发生变化的时，计算属性会重新计算。反之则使用缓存中的属性值。
 计算属性和vue中的其它数据一样，都是响应式的，只不过它必须依赖某一个数据实现，并且只有它依赖的数据的值改变了，它才会更新。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/425)
+
 
 </details>
 
@@ -1072,7 +1072,7 @@ reverse()
 
 答案：props传参
 
-[参与互动](https://github.com/yisainan/web-interview/issues/426)
+
 
 </details>
 
@@ -1080,7 +1080,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/427)
+
 
 </details>
 
@@ -1088,7 +1088,7 @@ reverse()
 
 答案：利用 vue-router 的 beforeEach 事件，可以在跳转页面前判断用户的权限（利用 cookie 或 token），是否能够进入此页面，如果不能则提示错误或重定向到其他页面，在后台管理系统中这种场景经常能遇到。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/428)
+
 
 </details>
 
@@ -1098,7 +1098,7 @@ reverse()
 
 而 $router 是路由实例对象，包括了路由的跳转方法，钩子函数等
 
-[参与互动](https://github.com/yisainan/web-interview/issues/429)
+
 
 </details>
 
@@ -1108,7 +1108,7 @@ reverse()
 
 借助 watch 还可以做一些特别的事情，例如监听页面路由，当页面跳转时，我们可以做相应的权限控制，拒绝没有权限的用户访问页面。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/430)
+
 
 </details>
 
@@ -1122,7 +1122,7 @@ reverse()
 
 其实这两个区别还应加一个watch，watch是用来监测数据的变化，和计算属性相比，是watch没有缓存，但是一般想要在数据变化时响应时，或者执行异步操作时，可以选择watch
 
-[参与互动](https://github.com/yisainan/web-interview/issues/431)
+
 
 </details>
 
@@ -1130,7 +1130,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/432)
+
 
 </details>
 
@@ -1138,7 +1138,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/433)
+
 
 </details>
 
@@ -1146,7 +1146,7 @@ reverse()
 
 答案：npm run build
 
-[参与互动](https://github.com/yisainan/web-interview/issues/434)
+
 
 </details>
 
@@ -1154,7 +1154,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/435)
+
 
 </details>
 
@@ -1162,7 +1162,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/436)
+
 
 </details>
 
@@ -1170,7 +1170,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/437)
+
 
 </details>
 
@@ -1178,7 +1178,7 @@ reverse()
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/438)
+
 
 </details>
 
@@ -1188,7 +1188,7 @@ reverse()
 
 解析：[参考](https://www.cnblogs.com/gaosong-shuhong/p/9253959.html)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/439)
+
 
 </details>
 
@@ -1198,7 +1198,7 @@ reverse()
 
 vue响应式的原理，首先对象传入vue实例作为data对象时，首先被vue遍历所有属性，调用Object.defineProperty设置为getter和setter，每个组件都有一个watcher对象，在组件渲染的过程中，把相关的数据都注册成依赖，当数据发生setter变化时，会通知watcehr，从而更新相关联的组件
 
-[参与互动](https://github.com/yisainan/web-interview/issues/440)
+
 
 </details>
 
@@ -1206,7 +1206,7 @@ vue响应式的原理，首先对象传入vue实例作为data对象时，首先�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/441)
+
 
 </details>
 
@@ -1214,7 +1214,7 @@ vue响应式的原理，首先对象传入vue实例作为data对象时，首先�
 
 答案：[参考](http://www.itcast.cn/news/20190110/15320198690.shtml)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/442)
+
 
 </details>
 
@@ -1222,7 +1222,7 @@ vue响应式的原理，首先对象传入vue实例作为data对象时，首先�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/443)
+
 
 </details>
 
@@ -1230,7 +1230,7 @@ vue响应式的原理，首先对象传入vue实例作为data对象时，首先�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/444)
+
 
 </details>
 
@@ -1252,7 +1252,7 @@ proxyTable: {
   }
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/445)
+
 
 </details>
 
@@ -1260,7 +1260,7 @@ proxyTable: {
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/446)
+
 
 </details>
 
@@ -1268,7 +1268,7 @@ proxyTable: {
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/447)
+
 
 </details>
 
@@ -1276,7 +1276,7 @@ proxyTable: {
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/448)
+
 
 </details>
 
@@ -1284,7 +1284,7 @@ proxyTable: {
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/449)
+
 
 </details>
 
@@ -1292,7 +1292,7 @@ proxyTable: {
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/450)
+
 
 </details>
 
@@ -1303,7 +1303,7 @@ proxyTable: {
 v-for 遍历的数组，当数组内容使用的是 arr[0].xx =xx 更改数据，vue 无法监测到
 vm.arr.length = newLength 也是无法检测的到的
 
-[参与互动](https://github.com/yisainan/web-interview/issues/451)
+
 
 </details>
 
@@ -1319,7 +1319,7 @@ vm.arr.length = newLength 也是无法检测的到的
 
 可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/452)
+
 
 </details>
 
@@ -1349,7 +1349,7 @@ const Singer = (resolve) => {
 }
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/453)
+
 
 </details>
 
@@ -1357,7 +1357,7 @@ const Singer = (resolve) => {
 
 答案：将当前组件的`<style>`修改为`<style scoped>`
 
-[参与互动](https://github.com/yisainan/web-interview/issues/454)
+
 
 </details>
 
@@ -1365,7 +1365,7 @@ const Singer = (resolve) => {
 
 答案：提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标.可以是 CSS 选择器，也可以是一个 HTMLElement 实例
 
-[参与互动](https://github.com/yisainan/web-interview/issues/455)
+
 
 </details>
 
@@ -1377,7 +1377,7 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 用途：js 可以写 es6、style 样式可以 scss 或 less；template 可以加 jade 等。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/456)
+
 
 </details>
 
@@ -1385,7 +1385,7 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/457)
+
 
 </details>
 
@@ -1393,7 +1393,7 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/458)
+
 
 </details>
 
@@ -1401,7 +1401,7 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/459)
+
 
 </details>
 
@@ -1415,7 +1415,7 @@ vuex 整体思想诞生于 flux,可其的实现方式完完全全的使用了 vu
 因为vuex生成了一个store实例，并且把这个实例挂在了所有的组件上，所有的组件引用的都是同一个store实例。
 store实例上有数据，有方法，方法改变的都是store实例上的数据。由于其他组件引用的是同样的实例，所以一个组件改变了store上的数据， 导致另一个组件上的数据也会改变，就像是一个对象的引用。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/460)
+
 
 </details>
 
@@ -1437,7 +1437,7 @@ store
 })
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/461)
+
 
 </details>
 
@@ -1462,7 +1462,7 @@ C、 如果一个状态只在一个组件内使用，是可以不用getters
 Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态；Action 可以包含任意异步操作。
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/462)
+
 
 </details>
 
@@ -1476,7 +1476,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 增加耦合，大量的上传派发，会让耦合性大大增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/463)
+
 
 </details>
 
@@ -1484,7 +1484,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/464)
+
 
 </details>
 
@@ -1492,7 +1492,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/465)
+
 
 </details>
 
@@ -1504,7 +1504,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 第二种：组件内的钩子；
 第三种：单独路由独享组件
 
-[参与互动](https://github.com/yisainan/web-interview/issues/466)
+
 
 </details>
 
@@ -1512,7 +1512,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/467)
+
 
 </details>
 
@@ -1520,7 +1520,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：在 router 目录下的 index.js 文件中，对 path 属性加上/:id。 使用 router 对象的 params.id
 
-[参与互动](https://github.com/yisainan/web-interview/issues/468)
+
 
 </details>
 
@@ -1528,7 +1528,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/469)
+
 
 </details>
 
@@ -1536,7 +1536,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/470)
+
 
 </details>
 
@@ -1544,7 +1544,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：[参考](https://segmentfault.com/a/1190000011519350)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/471)
+
 
 </details>
 
@@ -1552,7 +1552,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：hash history
 
-[参与互动](https://github.com/yisainan/web-interview/issues/472)
+
 
 </details>
 
@@ -1560,7 +1560,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/473)
+
 
 </details>
 
@@ -1572,7 +1572,7 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 每当URL地址改变时，就对相应的组件进行渲染。原理是很简单，实现方式可能有点复杂，主要有hash模式和history模式。
 如果想了解得详细点，建议百度或者阅读源码。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/474)
+
 
 </details>
 
@@ -1588,7 +1588,7 @@ MVVM 是 Model-View-ViewModel 的缩写。MVVM 是一种设计思想。Model 层
 
 ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作 DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/475)
+
 
 </details>
 
@@ -1628,7 +1628,7 @@ MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一�
 
 唯一的区别是，它采用双向绑定（data-binding）：View 的变动，自动反映在 ViewModel，反之亦然。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/476)
+
 
 </details>
 
@@ -1636,7 +1636,7 @@ MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/477)
+
 
 </details>
 
@@ -1778,7 +1778,7 @@ console.log(a.b); //打印 你取我的值
 
 扩展：[参考](https://www.cnblogs.com/zhaowj/p/9576450.html)
 
-[参与互动](https://github.com/yisainan/web-interview/issues/478)
+
 
 </details>
 
@@ -1786,7 +1786,7 @@ console.log(a.b); //打印 你取我的值
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/479)
+
 
 </details>
 
@@ -1796,7 +1796,7 @@ console.log(a.b); //打印 你取我的值
 
 解析：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/480)
+
 
 </details>
 
@@ -1804,7 +1804,7 @@ console.log(a.b); //打印 你取我的值
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/481)
+
 
 </details>
 
@@ -1812,7 +1812,7 @@ console.log(a.b); //打印 你取我的值
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/482)
+
 
 </details>
 
@@ -1820,7 +1820,7 @@ console.log(a.b); //打印 你取我的值
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/483)
+
 
 </details>
 
@@ -1834,7 +1834,7 @@ mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc
 
 场景：数据操作比较多的场景，更加便捷
 
-[参与互动](https://github.com/yisainan/web-interview/issues/484)
+
 
 </details>
 
@@ -1856,7 +1856,7 @@ mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc
 
 7、webpack：模块加载和 vue-cli 工程打包器。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/485)
+
 
 </details>
 
@@ -1879,7 +1879,7 @@ vue-cli 生成 生产环境部署资源 的 npm 命令：npm run build
 
 在浏览器上自动弹出一个 展示 vue-cli 工程打包后 app.js、manifest.js、vendor.js 文件里面所包含代码的页面。可以具此优化 vue-cli 生产环境部署的静态资源，提升 页面 的加载速度。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/486)
+
 
 </details>
 
@@ -1909,7 +1909,7 @@ index.html：设置项目的一些meta头信息和提供<div id="app"></div>用�
 package.json：用于 node_modules资源部 和 启动、打包项目的 npm 命令管理。
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/487)
+
 
 </details>
 
@@ -1932,7 +1932,7 @@ autoOpenBrowser：启动工程时，自动打开浏览器
 proxyTable：vue设置的代理，用以解决 跨域 问题
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/488)
+
 
 </details>
 
@@ -1946,7 +1946,7 @@ dependencies：生产环境依赖包的名称和版本号，即这些 依赖包 
 devDependencies：开发环境依赖包的名称和版本号，即这些 依赖包 只用于 代码开发 的时候，不会打包进 生产环境js文件 里面。
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/489)
+
 
 </details>
 
@@ -1964,7 +1964,7 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 5.安装 sass-resourses-loader
 
-[参与互动](https://github.com/yisainan/web-interview/issues/490)
+
 
 </details>
 
@@ -1983,7 +1983,7 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 遇到的问题：
 例如有 indexPage 命名，使用的时候则 index-page
 
-[参与互动](https://github.com/yisainan/web-interview/issues/491)
+
 
 </details>
 
@@ -1991,7 +1991,7 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/492)
+
 
 </details>
 
@@ -1999,7 +1999,7 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/493)
+
 
 </details>
 
@@ -2007,7 +2007,7 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/494)
+
 
 </details>
 
@@ -2015,7 +2015,7 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 
 答案：
 
-[参与互动](https://github.com/yisainan/web-interview/issues/495)
+
 
 </details>
 

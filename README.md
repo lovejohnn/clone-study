@@ -1,20 +1,11 @@
 # 目录
-<p align="left">
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AHTML"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=html" alt="html"></a>
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3ACSS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=css" alt="css"></a>
-  <a href="https://github.com/yisainan/web-interview/issues?q=is%3Aopen+is%3Aissue+label%3AJS"><img src="https://img.shields.io/github/languages/top/badges/shields.svg?label=javascript" alt="javascript"></a>
-  <a href="https://github.com/yisainan/web-interview/stargazers"><img src="https://img.shields.io/redmine/plugin/stars/redmine_xlsx_format_issue_exporter.svg" alt="Statr"></a>
-</p>
+
 
 <b><details><summary>💡 介绍</summary></b>
 
 1、本仓库是面向 web 前端开发者准备面试使用；知识在于积累，切勿刷题作面霸！
 
 2、建议阅读
-
-- [写给前端面试者](https://github.com/amfe/article/issues/5)
-
-🙏 建议自己先有个思考的过程，有了自己的答案或者疑问再看解析进行对比；仓库将持续更新，欢迎 <b>Star</b>，如有内容错误或改进意见，欢迎 [issue](https://github.com/yisainan/web-interview/issues/new?assignees=&labels=Bug&template=---------.md&title=%5Bbug%5D+) 或 pr。
 
 </details>
 

@@ -4,7 +4,7 @@
 
 答案：将传递给 setState 的对象合并到组件的当前状态，这将启动一个和解的过程，构建一个新的 react 元素树，与上一个元素树进行对比（ diff ），从而进行最小化的重渲染。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/496)
+
 
 </details>
 
@@ -12,7 +12,7 @@
 
 答案：creat-react-app Yeoman 等
 
-[参与互动](https://github.com/yisainan/web-interview/issues/497)
+
 
 </details>
     
@@ -20,7 +20,7 @@
 
 答案：如果您的组件具有状态( state ) 或 生命周期方法，请使用 Class 组件。否则，使用功能组件
 
-[参与互动](https://github.com/yisainan/web-interview/issues/498)
+
 
 </details>
 
@@ -42,7 +42,7 @@ render () {
 
 在开发过程中，我们需要保证某个元素的 key 在其同级元素中具有唯一性。在 React Diff 算法中 React 会借助元素的 Key 值来判断该元素是新近创建的还是被移动而来的元素，从而减少不必要的元素重渲染。此外，React 还需要借助 Key 值来判断元素与本地状态的关联关系，因此我们绝不可忽视转换函数中 Key 的重要性。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/499)
+
 
 </details>
 
@@ -62,7 +62,7 @@ render () {
 
 6、兼容性好：比如使用 RequireJS 来加载和打包，而 Browserify 和 Webpack 适用于构建大型应用。它们使得那些艰难的任务不再让人望而生畏。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/500)
+
 
 </details>
 
@@ -70,7 +70,7 @@ render () {
 
 答案：react为了提高整体的渲染性能，会将一次渲染周期中的state进行合并，在这个渲染周期中你对所有setState的所有调用都会被合并起来之后，再一次性的渲染，这样可以避免频繁的调用setState导致频繁的操作dom，提高渲染性能。具体的实现方面，可以简单的理解为react中存在一个状态变量isBatchingUpdates，当处于渲染周期开始时，这个变量会被设置成true，渲染周期结束时，会被设置成false，react会根据这个状态变量，当出在渲染周期中时，仅仅只是将当前的改变缓存起来，等到渲染周期结束时，再一次性的全部render。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/501)
+
 
 </details>
 
@@ -85,7 +85,7 @@ React 只会匹配相同 class 的 component（这里面的 class 指的是组�
 
 选择性子树渲染。开发人员可以重写 shouldComponentUpdate 提高 diff 的性能。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/502)
+
 
 </details>
 
@@ -110,7 +110,7 @@ React 只会匹配相同 class 的 component（这里面的 class 指的是组�
 
 解析：有三大阶段，每阶段的细分 5-5-1
 
-[参与互动](https://github.com/yisainan/web-interview/issues/503)
+
 
 </details>
 
@@ -120,7 +120,7 @@ React 只会匹配相同 class 的 component（这里面的 class 指的是组�
 
 shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法重新描绘 dom。因为 dom 的描绘非常消耗性能，如果我们能在 shouldComponentUpdate 方法中能够写出更优化的 dom diff 算法，可以极大的提高性能。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/504)
+
 
 </details>
 
@@ -132,7 +132,7 @@ shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法�
 
 用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异把 2 所记录的差异应用到步骤 1 所构建的真正的 DOM 树上，视图就更新了。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/505)
+
 
 </details>
 
@@ -172,7 +172,6 @@ function CustomForm({ handleSubmit }) {
 }
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/506)
 
 </details>
 
@@ -184,7 +183,7 @@ setState 是修改其中的部分状态，相当于 Object.assign，只是覆盖
 
 replaceState 是完全替换原来的状态，相当于赋值，将原来的 state 替换为另一个对象，如果新状态属性减少，那么 state 中就没有这个状态了
 
-[参与互动](https://github.com/yisainan/web-interview/issues/507)
+
 
 </details>
 
@@ -195,7 +194,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 - 一个组件所需要的数据，必须由父组件传过来，而不能像 flux 中直接从 store 取。
 - 当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新 render，可能会有效率影响，或者需要写复杂的 shouldComponentUpdate 进行判断。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/508)
+
 
 </details>
 
@@ -209,7 +208,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 4. Store 更新后，发出一个"change"事件
 5. View 收到"change"事件后，更新页面
 
-[参与互动](https://github.com/yisainan/web-interview/issues/509)
+
 
 </details>
 
@@ -220,7 +219,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 - redux 是一个应用数据流框架，主要是解决了组件间状态共享的问题，原理是集中式管理，主要有三个核心方法，action，store，reducer，工作流程是 view 调用 store 的 dispatch 接收 action 传入 store，reducer 进行 state 操作，view 通过 store 提供的 getState 获取最新的数据，flux 也是用来进行数据操作的，有四个组成部分 action，dispatch，view，store，工作流程是 view 发出一个 action，派发器接收 action，让 store 进行数据更新，更新完成以后 store 发出 change，view 接受 change 更新视图。Redux 和 Flux 很像。主要区别在于 Flux 有多个可以改变应用状态的 store，在 Flux 中 dispatcher 被用来传递数据到注册的回调事件，但是在 redux 中只能定义一个可更新状态的 store，redux 把 store 和 Dispatcher 合并,结构更加简单清晰
 - 新增 state,对状态的管理更加明确，通过 redux，流程更加规范了，减少手动编码量，提高了编码效率，同时缺点时当数据更新时有时候组件不需要，但是也要重新绘制，有些影响效率。一般情况下，我们在构建多交互，多数据流的复杂项目应用时才会使用它们
 
-[参与互动](https://github.com/yisainan/web-interview/issues/510)
+
 
 </details>
 
@@ -228,7 +227,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 答案：React.createClass()、ES6 class 和无状态函数。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/511)
+
 
 </details>
 
@@ -240,7 +239,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 - UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑。
 - 两者通过 React-Redux 提供 connect 方法联系起来。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/512)
+
 
 </details>
 
@@ -252,7 +251,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 这些 SyntheticEvent 与您习惯的原生事件具有相同的接口，除了它们在所有浏览器中都兼容。有趣的是，React 实际上并没有将事件附加到子节点本身。React 将使用单个事件监听器监听顶层的所有事件。这对于性能是有好处的，这也意味着在更新 DOM 时，React 不需要担心跟踪事件监听器。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/513)
+
 
 </details>
 
@@ -262,7 +261,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 在 React 组件中，应该在 componentDidMount 中发起网络请求。这个方法会在组件第一次“挂载”(被添加到 DOM)时执行，在组件的生命周期中仅会执行一次。更重要的是，你不能保证在组件挂载之前 Ajax 请求已经完成，如果是这样，也就意味着你将尝试在一个未挂载的组件上调用 setState，这将不起作用。在 componentDidMount 中发起网络请求将保证这有一个组件可以更新了。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/514)
+
 
 </details>
 
@@ -272,7 +271,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 在 super() 被调用之前，子类是不能使用 this 的，在 ES2015 中，子类必须在 constructor 中调用 super()。传递 props 给 super() 的原因则是便于(在子类中)能在 constructor 访问 this.props。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/515)
+
 
 </details>
 
@@ -282,7 +281,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 你可以使用属性初始值设定项(property initializers)来正确绑定回调，create-react-app 也是默认支持的。在回调中你可以使用箭头函数，但问题是每次组件渲染时都会创建一个新的回调。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/516)
+
 
 </details>
 
@@ -292,7 +291,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 因为 this.props 和 this.state 的更新可能是异步的，不能依赖它们的值去计算下一个 state。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/517)
+
 
 </details>
 
@@ -302,7 +301,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 高阶组件是一个以组件为参数并返回一个新组件的函数。HOC 运行你重用代码、逻辑和引导抽象。最常见的可能是 Redux 的 connect 函数。除了简单分享工具库和简单的组合，HOC 最好的方式是共享 React 组件之间的行为。如果你发现你在不同的地方写了大量代码来做同一件事时，就应该考虑将代码重构为可重用的 HOC。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/518)
+
 
 </details>
 
@@ -312,7 +311,7 @@ replaceState 是完全替换原来的状态，相当于赋值，将原来的 sta
 
 在 HTML 中，类似 `<input>`, `<textarea>` 和 `<select>` 这样的表单元素会维护自身的状态，并基于用户的输入来更新。当用户提交表单时，前面提到的元素的值将随表单一起被发送。但在 React 中会有些不同，包含表单元素的组件将会在 state 中追踪输入的值，并且每次调用回调函数时，如 onChange 会更新 state，重新渲染组件。一个输入表单元素，它的值通过 React 的这种方式来控制，这样的元素就被称为"受控元素"。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/519)
+
 
 </details>
 
@@ -324,7 +323,7 @@ React Element 是描述屏幕上所见内容的数据结构，是对于 UI 的�
 
 React Component 是一个函数或一个类，可以接收参数输入，并且返回某个 React Element
 
-[参与互动](https://github.com/yisainan/web-interview/issues/520)
+
 
 </details>
 
@@ -335,7 +334,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 - State 是一种数据结构，用于组件挂载时所需数据的默认值。State 可能会随着时间的推移而发生突变，但多数时候是作为用户事件行为的结果。
 - Props(properties 的简写)则是组件的配置。props 由父组件传递给子组件，并且就子组件而言，props 是不可变的(immutable)。组件不能改变自身的 props，但是可以把其子组件的 props 放在一起(统一管理)。Props 也不仅仅是数据--回调函数也可以通过 props 传递。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/521)
+
 
 </details>
 
@@ -346,7 +345,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 - 展示组件关心组件看起来是什么。展示专门通过 props 接受数据和回调，并且几乎不会有自身的状态，但当展示组件拥有自身的状态时，通常也只关心 UI 状态而不是数据的状态。
 - 容器组件则更关心组件是如何运作的。容器组件会为展示组件或者其它容器组件提供数据和行为(behavior)，它们会调用 Flux actions，并将其作为回调提供给展示组件。容器组件经常是有状态的，因为它们是(其它组件的)数据源。
 
-[参与互动](https://github.com/yisainan/web-interview/issues/522)
+
 
 </details>
 
@@ -361,7 +360,7 @@ React Component 是一个函数或一个类，可以接收参数输入，并且�
 - 类组件不仅允许你使用更多额外的功能，如组件自身的状态和生命周期钩子，也能使组件直接访问 store 并维持状态
 - 当组件仅是接收 props，并将组件自身渲染到页面时，该组件就是一个 '无状态组件(stateless component)'，可以使用一个纯函数来创建这样的组件。这种组件也被称为哑组件(dumb components)或展示组件
 
-[参与互动](https://github.com/yisainan/web-interview/issues/523)
+
 
 </details>
 
@@ -381,7 +380,7 @@ React.cloneElement()与 React.createElement()相似，不同的是它传入的�
 React.cloneElement(element, [props], [...children]);
 ```
 
-[参与互动](https://github.com/yisainan/web-interview/issues/524)
+
 
 </details>
 
