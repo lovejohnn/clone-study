@@ -104,7 +104,6 @@ Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界�
 
 </details>
 
-
 <b><details><summary>6.为什么避免 v-if 和 v-for 用在一起</summary></b>
 
 答案：
@@ -1004,7 +1003,69 @@ reverse()
 
 答案：
 
+### 数组更改注意事项
 
+Vue无法检测到以下方式变动的数组
+
+- 当你利用索引直接设置一个项时，例如：vm.items[index] = newValue
+- 当你修改数组的长度时，例如：vm.items.length = newLength
+  针对问题一，解决方案有两种：
+
+```
+var vm = new Vue({
+  data: {
+    items: ['a', 'b', 'c']
+  }
+})
+// 问题
+vm.items[1] = 'x' // 不是响应性的
+vm.items.length = 2 // 不是响应性的
+//  解决方案
+Vue.set(vm.items, indexOfItem, newValue);//方案一
+vm.$set(vm.items, indexOfItem, newValue);//等同于方案一
+vm.items.splice(indexOfItem, 1, newValue);//方案二
+```
+
+### 对象更改注意事项
+
+Vue无法检测到对象属性的添加和删除。对于已经创建的实例，Vue 不能动态添加根级别的响应式属性，可以使用 Vue.set(object, key, value) 方法向嵌套对象添加响应式属性。
+
+Vue 不能动态添加根级别的响应式属性：
+
+```
+var vm = new Vue({
+  data: {
+    a: 1
+  }
+})
+vm.b = 2;// vm.a现在是响应式的，vm.b不是响应式的
+```
+
+向嵌套对象添加响应式属性：
+
+```
+var vm = new Vue({
+  data: {
+    userProfile: {
+      name: 'Anika'
+    }
+  }
+})
+// 问题
+vm.userProfile.age = 27;// 非响应
+// 解决方案
+Vue.set(vm.userProfile, 'age', 27);// 方案一
+vm.$set(vm.userProfile, 'age', 27);// 等同方案一
+vm.userProfile = Object.assign({}, vm.userProfile, {
+  age: 27,
+  favoriteColor: 'Vue Green'
+});// 方案二
+//方案二是用两个对象的属性创建一个新的对象，注意不要使用以下方式，因为此种方式是与vm.userProfile.age = 27的本质是一样的，均是非响应属性。
+Object.assign(vm.userProfile, {
+  age: 27,
+  favoriteColor: 'Vue Green'
+})
+```
 
 </details>
 
@@ -1036,9 +1097,37 @@ reverse()
 
 答案：
 
+在main.js中自定义过滤器 ￥过滤器
 
+```html
+Vue.filter('moneyFormat', function(value) {    if(!value) return '0.00';    var intPart = Number(value).toFixed(0); //获取整数部分    var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断    var floatPart = ".00"; //预定义小数部分    var value2Array = value.toString().split(".");    //=2表示数据有小数位    if(value2Array.length == 2) {        floatPart = value2Array[1].toString(); //拿到小数部分        if(floatPart.length == 1) { //补0,实际上用不着            return intPartFormat + "." + floatPart + '0';        } else {            return intPartFormat + "." + floatPart;        }    } else {        return intPartFormat + floatPart;    }});
+在vue的页面中引用<label> {{ scope.row.credLeftLimit | moneyFormat }}</label>
+过滤部分，简化let val = Number(value).toFixed(2).toString().split(".");        val[0] = val[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");        return val.join(".");
+```
+
+如果 要做成公共的组件 共大家使用：
+
+1.在common的目录下定义一个 filters.js
+
+```html
+let moneyFormat = value => {    if (value) {        let val = Number(value).toFixed(2).toString().split(".");        val[0] = val[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");        return val.join(".");    }else{        return '0.00'    }    /*if(!value) return '0.00';    var intPart = Number(value).toFixed(0); //获取整数部分    var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断    var floatPart = ".00"; //预定义小数部分    var value2Array = value.toString().split(".");    //=2表示数据有小数位    if(value2Array.length == 2) {        floatPart = value2Array[1].toString(); //拿到小数部分        return intPartFormat + "." + floatPart;    } else {        return intPartFormat + floatPart;    }*/} export { moneyFormat }
+```
+
+\2. 然后在main.js中引用
+
+```html
+import * as filters from './common/js/filters.js'/***other code***/Object.keys(filters).forEach(key => {    Vue.filter(key, filters[key]);});
+```
+
+3.最后在页面中使用
+
+```html
+<p style="color: red;">{{ basicInfos.loanBalance | moneyFormat }}</p>
+```
 
 </details>
+
+
 
 <b><details><summary>33. vue 等单页面应用及其优缺点</summary></b>
 
