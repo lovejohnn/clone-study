@@ -878,7 +878,7 @@ export default [
 
 答案：总结组件的职能，什么需要外部控制（即 props 传啥），组件需要控制外部吗（\$emit）,是否需要插槽（slot）
 
-
+[简书答案](https://www.jianshu.com/p/79a37137e45d)
 
 </details>
 
@@ -1073,6 +1073,34 @@ Object.assign(vm.userProfile, {
 
 答案：
 
+使用`v-cloak`指令，`v-cloak`不需要表达式，它会在`Vue`实例结束编译时从绑定的HTML元素上移除，经常和CSS的`display:none`配合使用。
+
+```
+<div id="app" v-cloak>
+{{message}}
+</div>
+<script>
+var app = new Vue({
+    el:"#app",
+    data:{
+        message:"这是一段文本"
+    }
+})
+</script>
+```
+
+这时虽然已经加了指令`v-cloak`，但其实并没有起到任何作用，当网速较慢、Vue.js 文件还没加载完时，在页面上会显示`{{message}}`的字样，直到`Vue`创建实例、编译模版时，DOM才会被替换，所以这个过程屏幕是有闪动的。只要加一句`CSS`就可以解决这个问题了：
+
+```
+[v-cloak]{
+    display:none;
+}
+```
+
+在一般情况下，`v-cloak`是一个解决初始化慢导致页面闪动的最佳实践，对于简单的项目很实用。
+
+
+
 
 
 </details>
@@ -1081,7 +1109,7 @@ Object.assign(vm.userProfile, {
 
 答案：
 
-
+[简书答案](https://www.jianshu.com/p/c29b01faea87)
 
 </details>
 
@@ -1089,7 +1117,7 @@ Object.assign(vm.userProfile, {
 
 答案：
 
-
+[博客答案](https://www.cnblogs.com/gitByLegend/p/10870231.html)
 
 </details>
 
@@ -1100,9 +1128,25 @@ Object.assign(vm.userProfile, {
 在main.js中自定义过滤器 ￥过滤器
 
 ```html
-Vue.filter('moneyFormat', function(value) {    if(!value) return '0.00';    var intPart = Number(value).toFixed(0); //获取整数部分    var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断    var floatPart = ".00"; //预定义小数部分    var value2Array = value.toString().split(".");    //=2表示数据有小数位    if(value2Array.length == 2) {        floatPart = value2Array[1].toString(); //拿到小数部分        if(floatPart.length == 1) { //补0,实际上用不着            return intPartFormat + "." + floatPart + '0';        } else {            return intPartFormat + "." + floatPart;        }    } else {        return intPartFormat + floatPart;    }});
-在vue的页面中引用<label> {{ scope.row.credLeftLimit | moneyFormat }}</label>
-过滤部分，简化let val = Number(value).toFixed(2).toString().split(".");        val[0] = val[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");        return val.join(".");
+Vue.filter('moneyFormat', function (value) {
+    if (!value) return '0.00';
+    var intPart = Number(value).toFixed(0); //获取整数部分    
+    var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断    
+
+    var floatPart = ".00"; //预定义小数部分    
+    var value2Array = value.toString().split(".");     //=2表示数据有小数位    
+    if (value2Array.length == 2) {
+        floatPart = value2Array[1].toString(); //拿到小数部分        
+        if (floatPart.length == 1) { //补0,实际上用不着           
+            return intPartFormat + "." + floatPart + '0';
+        } else {
+            return intPartFormat + "." + floatPart;
+        }
+    }
+    else { return intPartFormat + floatPart; }
+});
+   // 在vue的页面中引用 < label > {{ scope.row.credLeftLimit | moneyFormat }}</label >
+//过滤部分，简化  let val = Number(value).toFixed(2).toString().split("."); val[0] = val[0].replace(/\B(?=(\d{3})+(?!\d))/g, ","); return val.join(".");
 ```
 
 如果 要做成公共的组件 共大家使用：
@@ -1110,7 +1154,26 @@ Vue.filter('moneyFormat', function(value) {    if(!value) return '0.00';    var 
 1.在common的目录下定义一个 filters.js
 
 ```html
-let moneyFormat = value => {    if (value) {        let val = Number(value).toFixed(2).toString().split(".");        val[0] = val[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");        return val.join(".");    }else{        return '0.00'    }    /*if(!value) return '0.00';    var intPart = Number(value).toFixed(0); //获取整数部分    var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断    var floatPart = ".00"; //预定义小数部分    var value2Array = value.toString().split(".");    //=2表示数据有小数位    if(value2Array.length == 2) {        floatPart = value2Array[1].toString(); //拿到小数部分        return intPartFormat + "." + floatPart;    } else {        return intPartFormat + floatPart;    }*/} export { moneyFormat }
+let moneyFormat = value => {
+    if (value) {
+        let val = Number(value).toFixed(2).toString().split(".");
+        val[0] = val[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return val.join(".");
+    } else { return '0.00' }
+    if (!value) return '0.00';
+    var intPart = Number(value).toFixed(0); //获取整数部分    
+    var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断   
+    var floatPart = ".00"; //预定义小数部分    
+    var value2Array = value.toString().split(".");    //=2表示数据有小数位   
+    if (value2Array.length == 2) {
+        floatPart = value2Array[1].toString(); //拿到小数部分      
+        return intPartFormat + "." + floatPart;
+    }
+    else {
+        return intPartFormat + floatPart;
+    }
+}
+export { moneyFormat }
 ```
 
 \2. 然后在main.js中引用
@@ -1168,6 +1231,24 @@ import * as filters from './common/js/filters.js'/***other code***/Object.keys(f
 <b><details><summary>36. vue 弹窗后如何禁止滚动条滚动？</summary></b>
 
 答案：
+
+```
+methods : {
+   //禁止滚动
+   stop(){
+        var mo=function(e){e.preventDefault();};
+        document.body.style.overflow='hidden';
+        document.addEventListener("touchmove",mo,false);//禁止页面滑动
+    },
+    /***取消滑动限制***/
+    move(){
+        var mo=function(e){e.preventDefault();};
+        document.body.style.overflow='';//出现滚动条
+        document.removeEventListener("touchmove",mo,false);
+    }
+
+}
+```
 
 
 
@@ -1319,7 +1400,7 @@ vue响应式的原理，首先对象传入vue实例作为data对象时，首先�
 
 答案：
 
-
+[vue源码解析](https://github.com/SHERlocked93/vue-analysis)
 
 </details>
 
@@ -1357,7 +1438,223 @@ proxyTable: {
 
 答案：
 
+# [vue 中 keepAlive](https://www.cnblogs.com/nokelong/p/8116631.html)
 
+项目开发中在用户由分类页category进入detail需保存用户状态，查阅了Vue官网后，发现vue2.0提供了一个keep-alive组件。
+
+keep-alive的介绍如下：
+
+1，把切换出去的组件保留在内存中，可以保留它的状态或避免重新渲染。
+
+2、<keep-alive>是抽象组件，它自身不会渲染DOM元素，也不会出现在父组件链中。
+
+3、当组件在 <keep-alive> 内被切换，它的 activated 和 deactivated 这两个生命周期钩子函数将会被对应执行。
+
+注：在 2.2.0 及其更高版本中，activated 和 deactivated 将会在 <keep-alive> 树内的所有嵌套组件中触发。
+
+ 
+
+使用方法包括以下几种：
+
+ 
+
+**1）基本用法：使用keep-alive直接包裹组件**
+
+  <keep-alive>
+
+​    <component :is="view"></component>
+
+  </keep-alive> 
+
+  <keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。
+
+  如果需要缓存整个项目，则如下设置：
+
+  <keep-alive>
+
+   <router-alive> </router-view>
+
+  </keep-alive>
+
+ 
+
+**2）缓存部分页面或者组件，使用route.meta属性**
+
+   在**App.vue中改造**如下
+
+  <keep-alive>
+
+​    <router-view v-if="$route.meta.keepAlive"></router-view>
+
+  </keep-alive>
+
+  <router-view v-if="!$route.meta.keepAlive"></router-view>
+
+ 
+
+  **项目中router中缓存页面路由**设置：
+
+  {
+
+​    name: 'category',
+
+​    path: '/tingshu/category',
+
+​    component: Category,
+
+​    meta: { keepAlive: true }
+
+  } 
+
+  //Category组件使用keep-alive，将保存在内存中。
+
+ 
+
+**3）使用新增属性include/exclude**
+
+   vue2.1.0 新增了include，exclude俩个属性，允许组件有条件的缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示。
+
+  <!-- 逗号分隔字符串 -->
+
+  <keep-alive include="a,b">
+
+​     <component :is="view"></component>
+
+  </keep-alive>
+
+ 
+
+  <!-- 正则表达式 (使用 `v-bind`) -->
+
+  <keep-alive :include="/a|b/">
+
+​    <component :is="view"></component>
+
+  </keep-alive>
+
+ 
+
+  <!-- 数组 (使用 `v-bind`) -->
+
+  <keep-alive :include="['a', 'b']">
+
+​    <component :is="view"></component>
+
+  </keep-alive>
+
+  匹配首先检查组件自身的 name 选项，如果 name 选项不可用，则匹配它的局部注册名称 (父组件 components 选项的键值)。匿名组件不能被匹配。
+
+  
+
+**4）动态判断，使用v-bind:include**
+
+  <keep-alive :include="includedComponents">
+
+​    <router-view></router-view>
+
+  </keep-alive>
+
+ includedComponents动态设置即可 
+
+ 
+
+5）使用beforeRouteLeave或者afterEach中进行拦截处理
+
+   如在项目在Category组件中的设置：
+
+   ![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/7115043b77fc43988bd2ee4eb189761e/qq%E6%88%AA%E5%9B%BE20171226103812.png)![img](https://images2017.cnblogs.com/blog/578006/201712/578006-20171226104048931-1791740945.png)
+
+   在beforeRouteLeave中to.name根据具体的路由进行动态缓存设置。 
+
+ [vue中使用keepAlive组件缓存遇到的坑](https://www.cnblogs.com/nokelong/p/8124513.html)
+
+项目开发中在用户由分类页category进入detail需保存用户状态，查阅了Vue官网后，发现vue2.0提供了一个keep-alive组件。
+
+上一篇讲了keep-alive的基本用法，现在说说遇到的坑。
+
+先说项目中的配置
+
+ 
+
+在App.vue中的设置
+
+ ![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/9e0d540d912a4ab39e7cc72824b26604/clipboard.png)![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/9e0d540d912a4ab39e7cc72824b26604/clipboard.png)![img](https://images2017.cnblogs.com/blog/578006/201712/578006-20171227102421526-426159514.png)
+
+
+
+在router中增加配置meta
+
+ ![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/0556ce74efd84cdbb4d017c164806863/clipboard.png)![img](https://images2017.cnblogs.com/blog/578006/201712/578006-20171227102440979-190350761.png)
+
+ 
+
+上面这个设置后发现问题了，从category进入detail页后，状态被保存了，返回的时候保存了用户状态，达到了预期效果
+
+![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/5d36e37475af43599f82462fa28feb45/clipboard.png)
+
+但问题在于但从category返回到index后，再由index进入category时依然显示是缓存中的页面，此刻页面没有刷新。
+
+返回index后的组件显示如下：
+
+![img](https://images2017.cnblogs.com/blog/578006/201712/578006-20171227102724682-1845553351.png)
+
+![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/1ccf2f0c92dd4b2cb1771e8151b0150f/clipboard.png)
+
+  
+
+分析从index再次进入category时，直接读取了缓存的里的页面。
+
+头大。。。。。。。我的目标只是缓存从category进入detail页面，其他的时候不缓存。
+
+ 
+
+ 
+
+解决方案
+
+在category中启用beforeRouteLeave钩子函数
+
+![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/e18b81492a6e4d928069a46fbec8bd58/clipboard.png)
+
+beforeRouteLeave中只有从category进入detail时才进行缓存，其他页面都讲category的keepalive设置成false，并销毁此category组件;
+
+ ![img](https://images2017.cnblogs.com/blog/578006/201712/578006-20171227102759354-1157821168.png)
+
+然而，发现新的问题。。。。。。
+
+第一次操作index--> category ---> detail的时候是理想效果，但当第二次操作返回index后，进行index --> category --> detail --> category时，发现缓存的对象又不对了，从detail返回category时，保存是的第一次进入detail的分类情况。
+
+此刻category的组件显示如下
+
+![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/ee010ec5e7ed401792ab90ca8528e481/clipboard.png)
+
+ ![img](https://images2017.cnblogs.com/blog/578006/201712/578006-20171227102826620-711025941.png)
+
+ 
+
+无奈。。。。。对比了第一次和第二次进入页面情况
+
+ 
+
+根据vue-router提供的守卫可在路由中启用afterEach路由守卫，在afterEach中进行判断是否第一次进入，非第一次进入页面情况强制刷新一次category页面。 
+
+![img](file:///C:/Users/qianxun/AppData/Local/YNote/data/sina2772838917/8eb1fd9ec0c24082993222940828b4fc/clipboard.png)
+
+ ![img](https://images2017.cnblogs.com/blog/578006/201712/578006-20171227102956541-75464509.png)
+
+ 
+
+至此终于解决了这个问题。
+
+ 
+
+网友提供了其他的解决方案可以参考下，
+
+https://www.jianshu.com/p/cd1baf5b03b0
+
+也可以参考github上关于keep-alive缓存相关的问。
+
+https://github.com/vuejs/vue-router/issues/811#issuecomment-353875880
 
 </details>
 
@@ -1490,7 +1787,16 @@ vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转�
 
 答案：
 
+1. 使用`keep-alive`包裹的组件/路由，打开一次后`created`只会执行一次，有两种情况，一、如果要重新渲染部分数据，可以在`activated`中做处理；二、路由/组件重新重新created，可以使用官方推荐的`:key="key" `，然后去改变`key`的值，组件就会重新挂载了
+2. `beforeRouteEnter`中的next函数的执行时间是在组件`mounted`之后，因此需要在此处处理的数据要注意了
+3. 网页刷新时vuex数据会丢失，需配合`localStorage`或`sessionStorage`使用，把必须数据先存后取
+4. 对于权限及不确定路由，可以使用addRoutes()，可以避免抖动
+5. 熟练使用es6的数组map、find、filter等方法，对解构赋值、class继承、promise，及es7中的async和await
+6. 使用`computed`替代`watch`，`computed`依赖于`data`属性的更改，是有缓存的
+7. 通过`props`传递的值，不要在子组件去更改。开发中，如果直接更改`props`，一、基本类型的值会报错，二、引用类型的值不会报错，但是不好去追溯数据的更改，很多人不太注意引用类型，可通过`computed`或`watch`去更改
+8. 在`data`里调用`methods`的方法，可以在`data`里定义`let self = this`，然后在使用`self.xx()`进行调用
 
+[1](https://segmentfault.com/a/1190000010794839?utm_source=tag-newest)
 
 </details>
 
@@ -1581,7 +1887,9 @@ Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不
 
 答案：
 
+[https://www.cnblogs.com/sea-breeze/p/11326460.html](https://www.cnblogs.com/sea-breeze/p/11326460.html)
 
+[https://zhuanlan.zhihu.com/p/99199175](https://zhuanlan.zhihu.com/p/99199175)
 
 </details>
 
@@ -1885,7 +2193,7 @@ console.log(a.b); //打印 你取我的值
 
 解析：
 
-
+[https://blog.csdn.net/qq_41115965/article/details/81776566](https://blog.csdn.net/qq_41115965/article/details/81776566)
 
 </details>
 
@@ -2155,3 +2463,9 @@ devDependencies：开发环境依赖包的名称和版本号，即这些 依赖�
 答案：
 
 </details>
+
+<b><details><summary>vue路由</summary></b>
+
+https://router.vuejs.org/zh/guide/#html
+
+https://www.jianshu.com/nb/14629981
